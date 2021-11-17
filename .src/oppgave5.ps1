@@ -1,5 +1,3 @@
-
-[cmdletbindig()]
 param (
     [Parameter(HelpMessage = "Et navn", Mandatory = $true)]
     [string]
@@ -13,8 +11,11 @@ $ErrorActionPreference = 'Stop'
 $response = Invoke-WebRequest -Uri $UrlKortstokk
 
 $cards = $response.content | ConvertFrom-Json
-#$cards.GetType()
-#$cards[0].suit
+#
+
+
+$sum = 0
+
 
 $kortstokk = @()
 
@@ -24,4 +25,14 @@ foreach ($card in $cards) {
 
 }
 
+
+function kortstokkPrint {
+    param (
+        $cards
+    )
+    
+$kortstokk = @()
+
+}
 Write-Host "Kortstokk: $kortstokk"
+Write-Host "Poengsum: " $sum
