@@ -1,5 +1,4 @@
-
-[cmdletbindig()]
+[CmdletBinding()]
 param (
     [Parameter(HelpMessage = "Et navn", Mandatory = $true)]
     [string]
@@ -10,7 +9,7 @@ param (
 $ErrorActionPreference = 'Stop'
 
 #$Url = "http://nav-deckofcards.herokuapp.com/shuffle"
-$response = Invoke-WebRequest -Uri $UrlKortstokk
+$response= Invoke-WebRequest -Uri $UrlKortstokk
 
 $cards = $response.content | ConvertFrom-Json
 #$cards.GetType()
