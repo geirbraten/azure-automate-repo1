@@ -1,3 +1,4 @@
+[CmdletBinding()]
 param (
     [Parameter(HelpMessage = "Et navn", Mandatory = $true)]
     [string]
