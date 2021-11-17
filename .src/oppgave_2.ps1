@@ -9,6 +9,6 @@ param (
 # PowerShell looks for the $ character. 
 # If it finds it, it assumes that any following characters, up to the next white space, are a variable name. 
 # It replaces the variable reference with the variable’s contents.
-# Ny endring
+# Ny endring space
 Write-Host "... $Navn!"
 Write-Host '... $navn!'
