@@ -12,8 +12,7 @@ $ErrorActionPreference = 'Stop'
 $response= Invoke-WebRequest -Uri $UrlKortstokk
 
 $cards = $response.content | ConvertFrom-Json
-#$cards.GetType()
-#$cards[0].suit
+
 
 $kortstokk = @()
 
