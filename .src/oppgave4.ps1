@@ -1,3 +1,4 @@
+$Url = "http://nav-deckofcards.herokuapp.com/shuffle"
 [CmdletBinding()]
 param (
     [Parameter(HelpMessage = "Et navn", Mandatory = $true)]
