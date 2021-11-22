@@ -1,38 +1,51 @@
+[CmdletBinding()]
 param (
-    [Parameter(HelpMessage = "Et navn", Mandatory = $true)]
+    [Parameter()]
     [string]
     $UrlKortstokk = "http://nav-deckofcards.herokuapp.com/shuffle"
-
 )
 
 $ErrorActionPreference = 'Stop'
 
-#$Url = "http://nav-deckofcards.herokuapp.com/shuffle"
 $response = Invoke-WebRequest -Uri $UrlKortstokk
 
-$cards = $response.content | ConvertFrom-Json
-#
-
+$cards = $response.Content | ConvertFrom-Json
 
 $sum = 0
-
-
-$kortstokk = @()
-
 foreach ($card in $cards) {
-   # $kortstokk = $kortstokk + ($card.suit[0] + $card.value)
-    $kortstokk += ($card.suit[0] + $card.value)
+   $sum += switch ($card.value)
+ {
+     'J' { 10 }
+     'Q' { 10 }
+     'K' { 10 }
+     'A' { 11 }
+     Default {$card.value}
+ }
+   }
 
-}
+# foreach ($card in $cards) {
+#   $sum += if ($card.value -eq 'J') {
+#       10
+#   }
+#   elseif ($card.value -eq 'Q') {
+#       10
+#   }
+#   elseif ($card.value -eq 'K') {
+#       10
+#   }
+#   elseif ($card.value -eq 'A') {
+#   11    
+#   }
+#   else {
+#       $card.value
+#   }
+# }
 
-
-function kortstokkPrint {
-    param (
-        $cards
-    )
-    
+#SKRIVER UT KORTSTOKK
 $kortstokk = @()
-
+foreach ($card in $cards) {
+    $kortstokk += ($card.suit[0] + $card.value)
 }
+
 Write-Host "Kortstokk: $kortstokk"
-Write-Host "Poengsum: " $sum
+Write-Host "Poengsum: $sum"

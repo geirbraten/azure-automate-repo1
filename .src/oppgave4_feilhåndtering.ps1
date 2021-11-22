@@ -2,7 +2,7 @@
 param (
     [Parameter()]
     [string]
-    $Url = "http://nav-deckofcards.herokuapp.com/shuffles"
+    $Url = "http://nav-deckofcards.herokuapp.com/shuffle"
     # i. Ta i mot prarameter
 )
 

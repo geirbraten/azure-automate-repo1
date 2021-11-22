@@ -4,9 +4,9 @@ param (
     [string]
     $UrlKortstokk = "http://nav-deckofcards.herokuapp.com/shuffle"
 )
+
 $ErrorActionPreference = 'Stop'
-$response = ""
-$cards = ""
+
 $response = Invoke-WebRequest -Uri $UrlKortstokk
 
 $cards = $response.Content | ConvertFrom-Json
