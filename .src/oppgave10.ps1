@@ -100,5 +100,40 @@ elseif ((sumPoengKortstokk -kortstokk $magnus) -eq $blackjack) {
     exit
 }
 
-# Hva er om begge har blackjack? Kanskje det kalles draw?
-# frivillig - kan du endre koden til å ta hensyn til draw?
+#####################################################################################################
+Write-Host " -------------------------------------------"
+Write-Host -BackgroundColor Red "Oppgave 8"
+
+while ((sumPoengKortstokk -kortstokk $meg) -lt 17) {
+    $meg += $kortstokk[0]
+    $kortstokk = $kortstokk[1..$kortstokk.Count]
+
+if ((sumPoengKortstokk -kortstokk $meg) -gt $blackjack) {
+    skrivUtResultat  -vinner "magnus" -kortStokkMagnus $magnus -kortStokkMeg $meg
+    exit
+}
+}
+
+
+
+#####################################################################################################
+Write-Host " -------------------------------------------"
+Write-Host -BackgroundColor Red "Oppgave 9"
+
+while ((sumPoengKortstokk -kortstokk $magnus) -le (sumPoengKortstokk -kortstokk $meg)) {
+    $magnus += $kortstokk[0]
+    $kortstokk = $kortstokk[1..$kortstokk.Count]
+}
+
+### Magnus taper spillet dersom poengsummen er høyere enn 21
+if ((sumPoengKortstokk -kortstokk $magnus) -gt $blackjack) {
+  skrivUtResultat -vinner "meg" -kortStokkMagnus $magnus -kortStokkMeg $meg
+    exit
+}
+
+#####################################################################################################
+Write-Host " -------------------------------------------"
+Write-Host -BackgroundColor Red "Oppgave 10"
+
+# dette har ikke noe med programmering å gjøre, kun med logikken i spillet
+skrivUtResultat  -vinner "magnus" -kortStokkMagnus $magnus -kortStokkMeg $meg
