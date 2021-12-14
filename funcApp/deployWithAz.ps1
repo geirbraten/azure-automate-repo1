@@ -3,7 +3,7 @@ param (
     [Parameter(HelpMessage = "The name of the parameter file", Mandatory = $false)]
     [ValidateScript( { Test-Path $_ })]
     [string]
-    $paramsFile = "$PSScriptRoot/deploy.parameters.psd1",
+    $paramsFile = "$PSScriptRoot.\deploy.parameters.psd1",
     [Parameter(HelpMessage = "Subscription to deploy to", Mandatory = $false)]
     [string]
     $subscription = "9f1b36f0-ab4c-444f-bd67-0b742263c2d6"
