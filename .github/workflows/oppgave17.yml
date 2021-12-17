@@ -1,8 +1,11 @@
 name: oppgave 17
 
 on:
- push:
- workflow_dispatch:
+  push:
+    # paths:
+    #   - "/.gihub/workflows/oppgave17.yml"
+    #   - "/funcApp/**" 
+  workflow_dispatch:
 
 jobs:
   job1:
@@ -31,4 +34,4 @@ jobs:
           modules-to-cache: Az.Storage, Az.Functions, Az.Websites, Az.Resources, Az.Accounts
 
       - name: Deploy Function app
-        run: .\funcApp\deployWithBicep.ps1 -firstName 'geir' -resourceGroupName 'geir-workshop-kltwiq7yxwzay'
+        run: .\funcApp\deployWithBicep.ps1 -firstName 'magnus' -resourceGroupName 'geir-workshop-kltwiq7yxwzay'
