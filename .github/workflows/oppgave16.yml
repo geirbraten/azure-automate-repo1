@@ -1,8 +1,11 @@
 name: oppgave 16
 
 on:
- push:
- workflow_dispatch:
+  push:
+    # paths:
+    #   - "/.gihub/workflows/oppgave16.yml"
+    #   - "/src/oppgave10.ps"
+  workflow_dispatch:
 
 jobs:
   job1:
